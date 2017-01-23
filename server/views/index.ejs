@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="book">
+  <head>
+    <meta charset="utf-8">
+     		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>personal library app</title>
+    <meta name="description" content=" " />
+    <meta name="author" content=" " />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <base href="/">
+    <!-- Use maximum-scale and user-scalable at your own risk. It disables pinch/zoom. Think about usability/accessibility before including.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- <link type="text/css" rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="/client/styles/app.css"> -->
+    <link type="text/less" rel="stylesheet" href="../../client/app/styles/styles.less">
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script>
+          less ={
+              env: "development",
+              async: false,
+              fileAsync: false,
+              poll: 1000,
+              functions: {},
+              dumpLineNumbers: "comments",
+              relativeUrls: false,
+              rootpath: "/a.com/"
+          };
+          </script>
+          <script src="/vendor/less/dist/less.js"></script>
+    <link type="text/less" rel="stylesheet" href="../../client/styles/styles.less">
+  </head>
+  <body>
+    <a ui-sref="home">home</a>
+    <a ui-sref="books">books list</a>
+    <a ui-sref="createBooks">Add Book</a>
+      <ui-view></ui-view>
+
+
+
+  <script src="/vendor/angular/angular.js"></script>
+  <script src="/vendor/angular-resource/angular-resource.js"></script>
+  <script src="/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+  <!-- <script src="/vendor/jquery/dist/jquery.js"></script> -->
+  <script src="/vendor/ngstorage/ngStorage.js"></script>
+
+  <!-- <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script> -->
+
+  <script src="/client/app.js"></script>
+  <script src="/client/app/services/services.js"></script>
+
+  <!-- grunt or gulp injection start -->
+  <script src="/client/app/components/booksList/bookslist.js"></script>
+  <script src="/client/app/components/booksCard/bookcard.js"></script>
+  </body>
+</html>

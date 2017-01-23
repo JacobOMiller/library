@@ -1,51 +1,30 @@
-namespace MediaClasses{
-  export abstract class Media{
-    constructor(public type: string, public name: string, public date: string){
-      type = this.type;
-      name = this.name;
-      date = this.date;
-    }
-  }
-  export abstract class Book extends Media{
-    constructor(type: string,name: string,date: string, public author: string){
-      super(type,name,date);
-      author = this.author;
-    }
-  }
+namespace  Book{
+  angular.module('book', ['ngResource', 'ui.router','ngStorage'])
+    .config((
+      $resourceProvider: ng.resource.IResourceServiceProvider,
+      $stateProvider: ng.ui.IStateProvider,
+      $urlRouterProvider: ng.ui.IUrlRouterProvider,
+      $locationProvider: ng.ILocationProvider
+    ) => {
+      $stateProvider
+        .state('home', {
+          url: '/',
+          template: '<book-list></book-list>'
+        })
+        .state('books',{
+          url: '/books',
+          template:'<h3>books</h3>'
+        })
+        .state('createBooks',{
+          url: '/addbook',
+          template:'<h3>add book</h3>'
+        })
+        $urlRouterProvider.otherwise('/');
+        $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: false,
+          rewriteLinks: false
+        });
+      })
 
-  export class comicBook extends Book{
-    constructor(type: string,name: string,date: string, author: string,
-    public illustrator: string, public issue: number){
-      super(type,name,date,author);
-      illustrator = this.illustrator;
-      issue = this.issue;
-    }
-  }
-
-  export class referenceBook extends Book{
-    constructor(type: string,name: string,date: string, author: string,
-    public edition: number, public isbn: string){
-      super(type,name,date,author);
-      edition = this.edition;
-      isbn = this.isbn;
-    }
-  }
-}
-function addMedia() {
-    var input = document.getElementById("mediaType");
-    var storedInput = input.value;
-    if (storedInput === "Movie") {
-        console.log("movie");
-    }
-    else {
-        console.log("not movie")
-        // var todo1 = new (storedInput);
-        // document.getElementById("results").innerHTML += "<li>" + todo1.task + "</li>";
-        // clearForm();
-    }
-    function clearForm() {
-        if (document.getElementById) {
-            document.form.reset();
-        }
-    }
 }

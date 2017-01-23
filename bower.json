@@ -22,6 +22,8 @@
     "angular-resource": "^1.6.1",
     "angular-messages": "^1.6.1",
     "bootstrap": "^3.3.7",
-    "less": "^2.7.2"
+    "less": "^2.7.2",
+    "es6-promise": "^4.0.5",
+    "lodash": "^4.17.4"
   }
 }
