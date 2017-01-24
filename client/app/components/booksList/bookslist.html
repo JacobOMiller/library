@@ -1,4 +1,26 @@
 <h2>books list</h2>
 <ul ng-repeat="book in vm.books">
-  <li>{{ book }}</li>
+    <li>
+        <div>
+          {{ book._id }}
+        </div>
+        <div>
+          {{ book.author }}
+        </div>
+        <div>
+          {{book.title}}
+        </div>
+        <div>
+          {{ book.picture }}
+        </div>
+        <div>
+          {{ book.description }}
+        </div>
+        <div>
+          <button ng-click="vm.goToDetails(book._id)">Details</button>
+        </div>
+    </li>
 </ul>
+<form>
+  <book-card ng-repeat="book in vm.books" book="book"></book-card>
+</form>

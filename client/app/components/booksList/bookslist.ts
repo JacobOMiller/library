@@ -6,6 +6,7 @@ namespace Book.Components {
 
     constructor(
       private BookService: Book.Services.BookService,
+      private $state:ng.ui.IStateService
     ){
       this.BookService.getBooks()
       .then((data)=>{
@@ -15,6 +16,12 @@ namespace Book.Components {
         console.log('err');
         throw new Error(e);
       })
+
+
+    }
+    goToDetails(id){
+      console.log(id);
+      this.$state.go('books',{id: id});
     }
   }
   angular.module('book').component(name,{

@@ -8,7 +8,7 @@ var Book;
             template: '<book-list></book-list>'
         })
             .state('books', {
-            url: '/books',
+            url: '/books/:id',
             template: '<h3>books</h3>'
         })
             .state('createBooks', {

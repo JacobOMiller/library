@@ -8,7 +8,8 @@ namespace Book.Services{
 
     }
     getBook(id){
-      return this.BookResource.get({id:id}).$promise
+      console.log(id);
+      return this.BookResource.get({id: id}).$promise;
     }
     updateBook(book){
       return this.BookResource.update({id: book._id}, book).$promise;
