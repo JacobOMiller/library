@@ -13,11 +13,11 @@ namespace  Book{
         })
         .state('books',{
           url: '/books/:id',
-          template:'<h3>books</h3>'
+          template:'<book-detail></book-detail>'
         })
         .state('createBooks',{
           url: '/addbook',
-          template:'<h3>add book</h3>'
+          template:'<create-book></create-book>'
         })
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode({

@@ -5,8 +5,9 @@ namespace Book.Components{
   export class BookCard {
     public book;
     constructor(
-      private BookService: Book.Services.BookService
-    
+      private BookService: Book.Services.BookService,
+      private $state: ng.ui.IStateService
+
     ){
       // this.BookService.getBook(this.book)
       // .then((data)=>{
@@ -25,6 +26,10 @@ namespace Book.Components{
         }).catch((e) => {
           throw new Error(e);
         })
+    }
+    goToDetails(id){
+      console.log(id);
+      this.$state.go('books',{id: id});
     }
   }
   angular.module('book').component(name, {

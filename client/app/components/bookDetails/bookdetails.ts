@@ -1,7 +1,7 @@
-namespace IMDbClone.Components{
+namespace Book.Components{
 
-  const name = 'movieDetail';
-  const template = './ngApp/components/movieDetails/movieDetail.html';
+  const name = 'bookDetail';
+  const template = '/client/app/components/bookDetails/bookdetails.html';
 
 
   export class BookDetail{
@@ -17,9 +17,9 @@ namespace IMDbClone.Components{
       })
     }
   }
-  angular.module('imdb-clone').component(name,{
+  angular.module('book').component(name,{
     templateUrl: template,
-    controller: IMDbClone.Components.BookDetail,
+    controller: Book.Components.BookDetail,
     controllerAs: 'vm'
   });
 }
