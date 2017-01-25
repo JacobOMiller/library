@@ -19,12 +19,9 @@ namespace  Book{
           url: '/addbook',
           template:'<create-book></create-book>'
         })
-        $urlRouterProvider.otherwise('/');
-        $locationProvider.html5Mode({
-          enabled: true,
-          requireBase: false,
-          rewriteLinks: false
+        .state('updateBook',{
+          url:'/books/update/:id',
+          template:'<book-update></book-update>'
         });
       })
-
 }

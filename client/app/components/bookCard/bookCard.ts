@@ -27,6 +27,14 @@ namespace Book.Components{
           throw new Error(e);
         })
     }
+    delete() {
+      console.log('delete');
+      this.BookService.deleteBook(this.book).then((result) => {
+          this.$state.go('home');
+      }).catch((e) => {
+          throw new Error(e);
+      })
+    }
     goToDetails(id){
       console.log(id);
       this.$state.go('books',{id: id});

@@ -28,6 +28,6 @@ namespace Book.Services{
       $resource: ng.resource.IResourceService){
       this.BookResource = $resource('/api/books/:id',{id: '@id'}, {update: { method: 'put' }});
     }
-  }
+  }  
   angular.module('book').service('BookService', BookService);
 }

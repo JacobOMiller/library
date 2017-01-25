@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URI);
 
 mongoose.connection.on('connected', () => {
 
-  console.log('mongoose connected');
+  console.log('Get Served!!!!!');
 });
 mongoose.connection.on('error', (e) => {
   throw new Error(e);

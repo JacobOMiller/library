@@ -8,13 +8,17 @@ namespace Book.Components{
       public book;
     constructor(
       BookService: Book.Services.BookService,
-      $stateParams: ng.ui.IStateParamsService
+      $stateParams: ng.ui.IStateParamsService,
+      private $state: ng.ui.IStateService
     ){
       BookService.getBook($stateParams['id']).then((result)=>{
       this.book = result;
       }).catch((e)=>{
         throw new Error(e);
       })
+    }
+    goToUpdate(id){
+      this.$state.go('updateBook',{id: id})
     }
   }
   angular.module('book').component(name,{

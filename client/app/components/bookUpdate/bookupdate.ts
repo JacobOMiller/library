@@ -1,20 +1,26 @@
 namespace Book.Components {
     //component config
     //movieCard translates to <movie-card movie="vm.movie"></movie-card>
-    const name = 'createBook';
-    const template = '/client/app/components/createBook/createBook.html';
+    const name = 'bookUpdate';
+    const template = '/client/app/components/bookUpdate/bookupdate.html';
 
-    export class CreateBook {
+    export class UpdateMovie {
         public book;
         constructor(
+            private $stateParams,
             private BookService: Book.Services.BookService,
             private $state: ng.ui.IStateService
         ) {
-      
+          console.log($stateParams['id']);
+          BookService.getBook($stateParams['id']).then((result)=>{
+            this.book = result;
+          }).catch((e)=>{
+            throw new Error(e);
+          });
         }
 
-        submit() {
-            this.BookService.createBook(this.book).then((result) => {
+        update() {
+            this.BookService.updateBook(this.book).then((result) => {
                 console.log(result);
                 this.$state.go('home');
             }).catch((e) => {
@@ -25,7 +31,7 @@ namespace Book.Components {
     }
     angular.module('book').component(name, {
         templateUrl: template,
-        controller: Book.Components.CreateBook,
+        controller: Book.Components.UpdateMovie,
         controllerAs: 'vm'
     });
 }
